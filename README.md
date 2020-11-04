@@ -1,0 +1,1 @@
+This exercise is about creating a virtual pet using JavaScript! We can program the pet to do all sorts, like go for walks, eat, sleep, and play. Looking forward to this challenge and seeing what I can learn :)
