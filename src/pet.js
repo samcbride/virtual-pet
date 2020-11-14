@@ -1,4 +1,4 @@
-const maximumFitness = 10;
+const maximumFitness = 10; //global variables/constants
 const minimumFitness = 0;
 const initialAge = 0;
 const maximumAge = 30;
@@ -10,6 +10,7 @@ function Pet(name) {
     this.age = initialAge;
     this.hunger = initialHunger;
     this.fitness = maximumFitness;
+    this.children = [];
 }
 Pet.prototype = {
     get isAlive() {
@@ -55,5 +56,15 @@ Pet.prototype.checkUp = function() {
         return 'I feel great!';
     }
 };
+Pet.prototype.adoptChild = function(child) {
+    this.children.push(child);
+};  
+
+//This is the other way the pet can have a child
+
+Pet.prototype.haveBaby = function() {
+    this.children.push(new Pet('Amelia'));
+};  
+
 
 module.exports = Pet;

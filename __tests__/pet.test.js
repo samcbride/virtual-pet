@@ -35,21 +35,6 @@ describe('isAlive', () => {
     pet.age = 29;
     expect(pet.isAlive).toEqual(true);
   });
-  // it('pet\'s fitness is 0 or less, return false', () => {
-  //   const pet = new Pet('Fido');
-  //   pet.fitness = 0;
-  //   expect(pet.isAlive).toEqual(false);
-  // });
-  // it('pet\'s hunger is 10 or more, return false', () => {
-  //   const pet = new Pet('Fido');
-  //   pet.hunger = 10;
-  //   expect(pet.isAlive).toEqual(false);
-  // });
-  // it('pet\'s age is 30 or more, return false', () => {
-  //   const pet = new Pet('Fido');
-  //   pet.age = 30;
-  //   expect(pet.isAlive).toEqual(false);
-  // });
 });
 describe('growUp', () => {
   it('increments the age by 1', () => {
@@ -138,5 +123,27 @@ describe('checkUp', () => {
     const pet = new Pet('Fido');
     pet.age = 30;
     expect(() => pet.checkUp()).toThrow('Your pet is no longer alive :(');
+  });
+});
+describe('adoptChild', () => {
+  it('parent adopts a child pet', () => {
+    const parent = new Pet('Dave');
+    const child = new Pet('Amelia');
+
+    parent.adoptChild(child)
+  
+    expect(parent.children).toEqual([{"age": 0, "children": [], "fitness": 10, "hunger": 0, "name": "Amelia"}]);
+  });
+});
+
+//This is the other way the pet can have a child
+
+describe('haveBaby', () => {
+  it('parent has a child pet', () => {
+    const parent = new Pet('Dave');
+
+    parent.haveBaby('Amelia');
+  
+    expect(parent.children).toEqual([ { name: 'Amelia', age: 0, hunger: 0, fitness: 10, children: [] } ]);
   });
 });
