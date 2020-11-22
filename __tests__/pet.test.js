@@ -21,17 +21,33 @@ describe('constructor', () => {
     });
   });
 describe('isAlive', () => {
-  it('tells us if the pet is no longer alive', () => {
+  it('tells us if the pet is no longer alive if hunger is greater than 10', () => {
+    const pet = new Pet('Fido');
+    pet.hunger = 10;
+    expect(pet.isAlive).toEqual(false);
+  });
+  it('tells us if the pet is no longer alive if fitness is less than 0', () => {
     const pet = new Pet('Fido');
     pet.fitness = 0;
-    pet.hunger = 10;
+    expect(pet.isAlive).toEqual(false);
+  });
+  it('tells us if the pet is no longer alive if age is greater than 30', () => {
+    const pet = new Pet('Fido');
     pet.age = 30;
     expect(pet.isAlive).toEqual(false);
   });
-    it('if none of above, return true', () => {
+  it('it tells us if the pet is alive if fitness is greater than 0', () => {
     const pet = new Pet('Fido');
     pet.fitness = 1;
+    expect(pet.isAlive).toEqual(true);
+  });
+  it('it tells us if the pet is alive if hunger is less than 10', () => {
+    const pet = new Pet('Fido');
     pet.hunger = 9;
+    expect(pet.isAlive).toEqual(true);
+  });
+  it('it tells us if the pet is alive if age is less than 30', () => {
+    const pet = new Pet('Fido');
     pet.age = 29;
     expect(pet.isAlive).toEqual(true);
   });
